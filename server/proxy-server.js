@@ -1,0 +1,28 @@
+const express = require('express');
+const cors = require('cors');
+const chatRoute = require('./routes/chat');
+const uploadRoute = require('./routes/upload');
+const saveRoute = require('./routes/save');
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.static('../public'));
+app.use('/prospects', express.static('../prospects'));
+
+// Routes
+app.use('/api/chat', chatRoute);
+app.use('/api/upload', uploadRoute);
+app.use('/api/save', saveRoute);
+
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Nitya AI Proxy Server running on http://localhost:${PORT}`);
+});

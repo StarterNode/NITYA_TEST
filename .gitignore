@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+package-lock.json
+
+# Configuration (contains API key)
+config.js
+
+# Environment variables
+.env
+.env.local
+
+# Generated directories
+prospects/
+build/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude artifacts
+.claude/

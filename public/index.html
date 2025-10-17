@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitya AI - StarterNode</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container: Split Screen -->
+    <div class="app-container">
+        
+        <!-- LEFT PANEL: Chat Interface -->
+        <div class="chat-panel">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="logo">
+                    <div class="logo-cube"></div>
+                    <span>Nitya AI</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span id="status-text">Online</span>
+                </div>
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="messages" class="messages-container">
+                <!-- Messages appear here -->
+            </div>
+            
+            <!-- Input Area -->
+            <div class="input-container">
+                <textarea 
+                    id="user-input" 
+                    placeholder="Type your message..."
+                    rows="1"
+                ></textarea>
+                <button id="send-btn" class="btn-send">
+                    Send
+                </button>
+            </div>
+            
+            <!-- Hidden file input -->
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+        </div>
+        
+        <!-- RIGHT PANEL: Live Preview -->
+        <div class="preview-panel">
+            <!-- Preview Header -->
+            <div class="preview-header">
+                <h2>Live Preview</h2>
+                <div id="progress-indicator">Section 1 of 4</div>
+            </div>
+            
+            <!-- Preview Container -->
+            <div id="preview-content" class="preview-content">
+                <div class="preview-placeholder">
+                    <div class="placeholder-icon">🎨</div>
+                    <p>Your website preview will appear here as we build it together</p>
+                </div>
+            </div>
+            
+            <!-- Approve Button (hidden until section complete) -->
+            <button id="approve-btn" class="btn-approve" style="display: none;">
+                ✓ Approve Section
+            </button>
+        </div>
+        
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
