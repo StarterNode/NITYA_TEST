@@ -1,45 +1,87 @@
-# NITYA AI V1.1 - Clean Rebuild
+# NITYA V1.1 - Lead Design Consultant System
 
-**Interactive AI Sales Discovery System**  
-Built with lightweight HTML, modular brain architecture, and centralized pricing.
+**Intelligent Requirements Gathering & Designer Handoff**  
+Built with lightweight HTML, modular brain architecture, and folder-based output.
 
 ---
 
 ## 🎯 What This Is
 
-Nitya is an AI sales consultant that:
-- Collects website requirements through natural conversation
-- Builds live mockups section-by-section with client
-- Generates structured, production-ready data for designers
-- Uses progressive approval flow for psychological buy-in
+Nitya is StarterNode's Lead Design Consultant - a requirements gathering system that **replaces Calendly** with intelligent intake.
 
-**Key Innovation:** Split-screen interface where clients see their website mockup update in real-time as they answer questions.
+**What Nitya Does:**
+- Collects website requirements through natural conversation
+- Fills prospect folders with structured data (sitemap.json, metadata.json, styles.css, assets)
+- Generates turnkey designer handoff packages
+- Uses interactive preview for client co-creation
+
+**What Nitya Doesn't Do:**
+- Build the actual website (that's for human designers)
+- Replace designers (she enables them to work faster)
+
+**Key Innovation:** Every conversation fills a folder with everything designers need to build without guessing.
 
 ---
 
-## 📋 Quick Start for Claude Code
+## 📁 The Folder System
 
-**To build this system with Claude Code:**
+### What Gets Created
 
-1. Open terminal in this directory
-2. Run: `claude code`
-3. Paste the contents of `CLAUDE_CODE_PROMPT.md`
-4. Claude Code will build everything in stages
-5. If interrupted, resume by referencing the stage number
+When a user chats with Nitya, a folder is filled:
 
-**Build Stages:**
-1. Foundation (brain modules + proxy server)
-2. Split-screen interface
-3. Preview system
-4. File management
-5. Testing
+```
+/prospects/UID_12345/
+├── sitemap.json          ← Pages they need
+├── metadata.json         ← Business info, domain, social URLs
+├── styles.css            ← Brand colors, fonts, reference site
+├── assets/
+│   ├── icons/
+│   │   └── logo.png      ← Their logo
+│   └── images/
+│       └── [photos]      ← All uploaded images
+└── conversation.json     ← Full chat history
+```
+
+### Designer Handoff
+
+Designers receive a complete folder:
+- Open folder → Read files → Import data → Build site
+- No guessing, no back-and-forth, just clarity
+
+---
+
+## 🧠 Brain Modules
+
+**personality.json** - WHO she is  
+- Character traits, tone, communication style
+- 22-year-old from Texas with wedding sales background
+
+**sales.json** - HOW she sells  
+- Traffic light system, NLP techniques, objection handling
+- One question at a time (concise mode)
+
+**web_landing.json** - WHAT she asks  
+- Discovery questions, section templates
+- Pages, business info, style preferences
+
+**pricing.json** - 💰 PRICING (THE ONLY PLACE WITH NUMBERS!)  
+- $40 first month, $199 second month, $26/month ongoing
+- Payment options and timelines
+
+---
+
+## 🚨 CRITICAL RULES
+
+1. **NO PRICE NUMBERS ANYWHERE EXCEPT `pricing.json`**
+2. **Nitya is "Lead Design Consultant"** (never mention anything else)
+3. **She fills folders, not websites** (designers build the real thing)
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-Browser (localhost:8080)
+Browser (localhost:8080/public/)
     ├── Chat Panel (left)
     └── Preview Panel (right)
          ↓
@@ -48,133 +90,100 @@ Proxy Server (localhost:3000)
 Anthropic Claude API
     ↓
 Brain Modules (4 JSON files)
+         ↓
+Prospect Folder (/prospects/UID/)
+    ├── sitemap.json
+    ├── metadata.json
+    ├── styles.css
+    └── assets/
 ```
 
 ---
 
-## 🧠 Brain Modules
-
-**personality.json** - WHO she is  
-- Character traits, tone, communication style
-- Will be populated by Perplexity
-
-**sales.json** - HOW she sells  
-- Traffic light system, NLP techniques, objection handling
-- Will be populated by Perplexity
-
-**web_landing.json** - WHAT she asks  
-- Discovery questions, section templates
-- Will be populated by Perplexity
-
-**pricing.json** - 💰 PRICING (THE ONLY PLACE WITH NUMBERS!)  
-- $40 first month, $199 second month, $26/month ongoing
-- Already populated with current offer
-
----
-
-## 🚨 CRITICAL RULE
-
-**NO PRICE NUMBERS ANYWHERE EXCEPT `pricing.json`**
-
-This is a hard rule. All other brain modules must reference pricing.json for any pricing information.
-
----
-
-## 📁 Current Files
-
-```
-NITYA_V1.1/
-├── brain_modules/              ← 4 JSON brain files (templates ready)
-├── CHANGELOG.md                ← Build history from V1.0
-├── CLAUDE_CODE_PROMPT.md       ← Complete build instructions
-├── config.js                   ← API key + settings
-├── global.css                  ← Design tokens
-├── favicon.ico                 ← StarterNode icon
-├── NITYA.md                    ← Complete vision document
-└── README.md                   ← This file
-```
-
-**To be created by Claude Code:**
-- `public/` (HTML, CSS, JS)
-- `server/` (Node.js proxy + routes)
-- `prospects/` (auto-generated user data)
-
----
-
-## 🎨 Design System
-
-Uses existing design tokens from `global.css`:
-
-**Brand Colors:**
-- Primary: #440DC3 → #00bf63 (purple to green gradient)
-- Success: #00bf63
-- Error: #ea5a37
-- Warning: #ffcb01
-
-**Typography:**
-- Heading: SF Pro Display / system-ui
-- Body: SF Pro Text / system-ui
-
----
-
-## 🔧 How to Run (After Build)
+## 🔧 How to Run
 
 ### Terminal 1: Proxy Server
 ```bash
-npm install
+cd "C:\Users\matth\Documents\StarterNode 2.0\APP\NITYA_V1.1"
 npm start
 ```
 
-### Terminal 2: Static Files
+### Terminal 2: Static File Server
 ```bash
-cd public
+cd "C:\Users\matth\Documents\StarterNode 2.0\APP\NITYA_V1.1"
 python -m http.server 8080
 ```
 
+### Terminal 3: Manual Folder Creation (For Testing Phase 3)
+```bash
+cd "C:\Users\matth\Documents\StarterNode 2.0\APP\NITYA_V1.1"
+mkdir -p prospects/test_user_001/assets/icons
+mkdir -p prospects/test_user_001/assets/images
+```
+
 ### Access
-Open: `http://localhost:8080`
+Open: `http://localhost:8080/public/`
 
 ---
 
 ## 📚 Documentation
 
-- **CLAUDE_CODE_PROMPT.md** - Complete build instructions for Claude Code
-- **NITYA.md** - Full vision, strategy, and technical specs
-- **CHANGELOG.md** - Build history and lessons learned
+- **NITYA.md** - Complete vision, strategy, and technical specs
+- **CHANGELOG.md** - Build history and current phase status
+- **phase_3_build.md** - Architecture for folder-filling system (in chat artifact)
+
+---
+
+## 🎯 Current Status
+
+**Phase 1:** ✅ Complete - Foundation & CORS solution  
+**Phase 2:** ✅ Complete - Split-screen interface & file uploads  
+**Phase 3:** 🔨 In Development - Folder-based designer handoff
+
+### Phase 3 Goals
+
+Building the folder-filling system:
+- [ ] Backend routes write JSON files (sitemap, metadata, styles)
+- [ ] System prompt uses tagging protocol
+- [ ] Frontend detects tags and calls APIs
+- [ ] Files fill in real-time as Nitya talks
+- [ ] Designer receives complete folder
+
+**Estimated Time:** 6-8 hours
 
 ---
 
 ## 🎓 Key Principles
 
-1. **Modular brain** = Easy to scale to new services
-2. **Centralized pricing** = Change prices in one place
-3. **Lightweight HTML** = No framework bloat
-4. **Structured output** = Designers get clear requirements
-5. **Progressive approval** = Psychological buy-in
+1. **Nitya fills folders, not websites** - Designers build the real thing
+2. **Replaces Calendly** - Instant engagement vs scheduling friction
+3. **Structured output** = happy designers (no guessing)
+4. **One question at a time** - Concise, focused, efficient
+5. **Keep momentum** - Perfection kills deals, placeholders work
 
 ---
 
 ## 🚀 Next Steps
 
-1. **Build the system:** Use Claude Code with `CLAUDE_CODE_PROMPT.md`
-2. **Populate brain modules:** Use Perplexity to fill personality, sales, and web_landing
-3. **Test the flow:** Run through discovery process
-4. **Iterate:** Refine questions and preview templates
+1. **Complete Phase 3:** Folder-filling system with JSON generation
+2. **Phase 4:** PocketBase integration (real user auth, conversation storage)
+3. **Phase 5:** Proposal generation + Stripe payment
+4. **Phase 6:** Production deployment to starternode.com
 
 ---
 
 ## 📞 Need Help?
 
-- Check `CLAUDE_CODE_PROMPT.md` for detailed instructions
-- Review `NITYA.md` for strategy and vision
-- Look at `CHANGELOG.md` for lessons from V1.0
+- Check `CHANGELOG.md` for current phase status and build order
+- Review `NITYA.md` for complete strategy and vision
+- Reference `phase_3_build.md` artifact for folder architecture
 
 ---
 
 **Version:** 1.1  
 **Build Date:** October 17, 2025  
-**Status:** Ready for Claude Code execution
+**Status:** Phase 2 Complete | Phase 3 In Development
 
 ---
 
-*Keep it modular. Keep it lightweight. Keep pricing centralized.*
+*"Nitya fills folders. Designers build websites. Clients get exactly what they described."*

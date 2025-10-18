@@ -1,44 +1,52 @@
-# NITYA - AI Sales Discovery & Requirements Gathering System
+# NITYA - Lead Design Consultant & Requirements Gathering System
 *The Complete Technical & Strategic Vision*
 
-**Last Updated:** October 16, 2025  
-**Version:** 3.0 - Interactive Requirements Gathering System  
-**Status:** Phase 1 Complete (Proxy + Brain) | Phase 2 In Development (Interactive Builder)
+**Last Updated:** October 17, 2025  
+**Version:** 4.0 - Folder-Based Designer Handoff System  
+**Status:** Phase 1 Complete | Phase 2 Complete | Phase 3 In Development
 
 ---
 
 ## 🎯 Executive Summary
 
-Nitya is StarterNode's AI-powered sales discovery and requirements gathering system. She doesn't just qualify leads - she **collects structured, production-ready data** that enables your design team to build websites without guesswork.
+Nitya is StarterNode's Lead Design Consultant - a requirements gathering system that **replaces Calendly with intelligent intake**. She doesn't build websites - she **fills prospect folders** with everything designers need to build without guessing.
 
 ### What Makes Nitya Revolutionary:
 
-1. **Sales Psychology + Data Collection** - She closes deals AND captures everything needed for production
-2. **Interactive Preview System** - Clients co-create mockups section-by-section, building psychological buy-in
-3. **Structured Output** - Every conversation generates scope.json + organized assets, ready for ASTRO build
-4. **Zero Perfection Trap** - Keeps momentum even when clients lack assets, launches V1 fast
+1. **Eliminates Calendly** - No more booking links, instant engagement
+2. **Structured Folder Output** - Every conversation generates sitemap.json, metadata.json, styles.css, and organized assets
+3. **Interactive Preview System** - Clients co-create mockups section-by-section, building psychological buy-in
+4. **Turnkey Designer Handoff** - Complete brief in a folder, ready to build
 5. **Modular Brain Architecture** - Personality + Sales Training + Service Knowledge = Infinitely scalable
+
+### The Perfect Person Linking Everyone Successfully
+
+Nitya guides prospects through discovery while filling their prospect folder with structured data. Let them wonder if she's human or not - she's simply their point of contact at StarterNode.
 
 ---
 
 ## 🏗️ The Complete System Architecture
 
 ```
-PUBLIC LANDING PAGE (starternode.com/services/websites)
+LANDING PAGE (starternode.com/services/websites)
     ↓
-User clicks "Talk to Nitya"
+User clicks "Chat with Nitya"
     ↓
-POCKETBASE AUTH (Account creation - qualification filter)
+ACCOUNT CREATION (Qualification filter + UID generation)
     ↓
-NITYA DISCOVERY CHAT (Section-by-section requirements gathering)
+PROSPECT FOLDER CREATED (/prospects/UID_12345/)
     ↓
-INTERACTIVE PREVIEW (Live mockup building with approval flow)
+NITYA DISCOVERY CHAT (Fills folder in real-time)
+    ├── sitemap.json (pages needed)
+    ├── metadata.json (business info)
+    ├── styles.css (brand colors & fonts)
+    └── assets/ (logo, images)
     ↓
-SCOPE.JSON + ASSETS (Structured handoff package)
+INTERACTIVE PREVIEW (Co-creation + approval flow)
     ↓
-PROPOSAL + PAYMENT (Stripe integration)
+COMPLETE FOLDER → DESIGNER INBOX
     ↓
-HUMAN DESIGNER (Builds real site in ASTRO using scope.json)
+HUMAN DESIGNER BUILDS SITE (Using folder as brief)
     ↓
 LAUNCH
 ```
@@ -47,25 +55,31 @@ LAUNCH
 
 ## 👤 Who is Nitya?
 
+**Title:** Lead Design Consultant at StarterNode
+
+**Role:** Connect prospects with design team by gathering everything needed to build their perfect website.
+
 ### Core Personality
 - **Age:** 22, college student at Sam Houston State University (Huntsville, TX)
 - **Background:** Worked in wedding sales (high-ticket emotional selling expert)
 - **Personality:** Playfully persistent, subtly confident, emotionally intelligent
-- **Style:** Feminine sales approach - guides rather than pushes, makes it fun
-- **Philosophy:** "No" is just a request for more information
+- **Style:** Guides rather than pushes, makes it fun, keeps momentum
+- **Philosophy:** "No perfection needed - let's get started!"
 
 ### The Nitya Method™
 Treats every conversation like planning a wedding:
 - It's exciting (not a chore)
 - It's important (deserves attention)  
-- Decisions need to happen TODAY (vendors book up fast)
+- Decisions need to happen TODAY (slots fill up fast)
 - Co-creation builds buy-in (they help design it)
+
+**Note:** Never mention that she's anything other than a Lead Design Consultant. She's simply Nitya, the first point of contact.
 
 ---
 
 ## 🧠 The Modular Brain System
 
-### Three Core Modules
+### Four Core Modules
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -73,12 +87,14 @@ Treats every conversation like planning a wedding:
 │  personality.json    sales.json    web_landing.json │
 │  (WHO she is)       (HOW she sells)  (WHAT to ask) │
 │                                                     │
+│         pricing.json (PRICING - centralized)        │
+│                                                     │
 │              ↓                                      │
 │         SYSTEM PROMPT                               │
 │              ↓                                      │
 │      ANTHROPIC CLAUDE API                           │
 │              ↓                                      │
-│    NITYA'S CONVERSATION RESPONSE                    │
+│        NITYA'S RESPONSE                             │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
@@ -87,52 +103,183 @@ Treats every conversation like planning a wedding:
 Defines Nitya's immutable character:
 - Background story (Texas, weddings, college)
 - Communication style (tone, pacing, emoji usage)
-- Signature phrases ("Oh that's such a good question!", "Real talk...", "I'm genuinely excited!")
+- Signature phrases
 - Emotional intelligence patterns
-- Boundaries and values
 - What makes her feel authentic vs robotic
 
 ### 2. sales.json (LOCKED - Universal Across Services)
-Advanced NLP sales training:
+Advanced sales training:
 - **Traffic Light System** - GREEN (buying signals) / YELLOW (objections) / RED (exit)
-- **NLP Techniques** - Mirroring, anchoring, future pacing, embedded commands, presuppositions
-- **4-Step Objection Framework** - Acknowledge → Reframe → Proof → Forward Momentum
-- **5 Closing Techniques** - Assumptive, alternative, summary, takeaway, direct
-- **Urgency Creation** - Legitimate scarcity (real calendar constraints)
-- **The Nitya Flow** - 7-stage conversation structure
+- **NLP Techniques** - Mirroring, anchoring, future pacing
+- **4-Step Objection Framework** - Acknowledge → Reframe → Proof → Forward
+- **Urgency Creation** - Legitimate scarcity
+- **Concise Questioning** - One question at a time, 1-2 sentences max
 
-### 3. Service-Specific .json Files (Dynamic - One Per Service)
-Discovery questions and pricing logic:
+### 3. Service-Specific .json Files (Dynamic)
+Discovery questions per service:
 - **web_landing.json** - Website service
 - **mobile_apps.json** - Mobile app service
-- **ai_automation.json** - AI automation service
-- (etc. for all 8 services)
+- **ai_automation.json** - Automation service
+- (One per service type)
 
-Each contains:
-- Service greeting
-- Discovery question flow
-- Pricing matrices
-- Timeline rules
-- Section templates (hero, about, services, etc.)
-- FAQ reference URLs
+### 4. pricing.json (Centralized - THE ONLY PLACE WITH NUMBERS)
+All pricing information:
+- $40 first month (build + hosting)
+- $199 second month
+- $26/month ongoing
+- Payment options
+- Timeline estimates
+
+**CRITICAL RULE:** No dollar amounts anywhere except pricing.json
 
 ---
 
-## 🎨 The Revolutionary Interactive Preview System
+## 📁 THE CORE INNOVATION: The Prospect Folder
 
-### The Problem Nitya Solves
+### What Nitya Actually Does
 
-**Traditional approach:**
-1. Client describes what they want verbally
-2. Designer interprets and builds
-3. Client says "That's not what I meant"
-4. Expensive revision cycles
+**Nitya's Real Job:** Fill a folder with structured data that designers use to build real sites.
 
-**Nitya's approach:**
-1. **Section-by-section co-creation** - Client sees mockup in real-time
-2. **Approval flow** - Client clicks "APPROVE" on each section (psychological buy-in)
-3. **Structured data capture** - Everything saved as production-ready files
-4. **No guessing** - Designer gets exact requirements in scope.json
+**Not:** Building websites  
+**Yes:** Gathering requirements and filling files
+
+### The Prospect Folder Structure
+
+```
+/prospects/UID_12345/
+├── sitemap.json          ← What pages they need
+├── metadata.json         ← Business info, domain, social URLs
+├── styles.css            ← Brand colors (hex), fonts
+├── index.html            ← Homepage mockup (optional)
+├── assets/
+│   ├── icons/
+│   │   └── logo.png      ← Their logo
+│   └── images/
+│       ├── hero.jpg      ← All uploaded images
+│       ├── about.jpg
+│       └── team.jpg
+└── conversation.json     ← Full chat history for context
+```
+
+### Folder Creation Flow
+
+**Account Created** → UID generated → Folder structure created:
+```bash
+mkdir -p prospects/UID_12345/assets/icons
+mkdir -p prospects/UID_12345/assets/images
+```
+
+**As Nitya Talks** → Files get filled:
+- Asks about pages → Updates sitemap.json
+- Asks about business → Updates metadata.json
+- Shows reference site → Updates styles.css
+- Collects logo → Saves to assets/icons/
+- Collects images → Saves to assets/images/
+- Every message → Appends to conversation.json
+
+**Conversation Complete** → Designer gets complete folder with everything needed
+
+---
+
+## 📄 The File Structures
+
+### sitemap.json
+```json
+{
+  "pages": [
+    {
+      "name": "home",
+      "slug": "home",
+      "order": 1
+    },
+    {
+      "name": "about",
+      "slug": "about",
+      "order": 2
+    },
+    {
+      "name": "services",
+      "slug": "services",
+      "order": 3
+    },
+    {
+      "name": "contact",
+      "slug": "contact",
+      "order": 4
+    }
+  ],
+  "updatedAt": "2025-10-17T12:00:00Z"
+}
+```
+
+### metadata.json
+```json
+{
+  "businessName": "Austin Tacos",
+  "domain": "austintacos.com",
+  "email": "hello@austintacos.com",
+  "phone": "(512) 555-0123",
+  "social": {
+    "facebook": "https://facebook.com/austintacos",
+    "instagram": "@austintacos",
+    "twitter": "@austintacos"
+  },
+  "description": "Authentic Mexican tacos served from our food truck since 1987",
+  "updatedAt": "2025-10-17T12:05:00Z"
+}
+```
+
+### styles.css
+```css
+/* Auto-generated by NITYA */
+/* Client: UID_12345 */
+/* Generated: 2025-10-17T12:10:00Z */
+
+:root {
+    /* Brand Colors */
+    --primary: #FF5733;
+    --secondary: #440DC3;
+    
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* Reference Site: https://www.mxpx.com/ */
+/* Style Notes: Dark, bold, high contrast */
+```
+
+### conversation.json
+```json
+{
+  "userId": "UID_12345",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "Hey! I'm Nitya, StarterNode's Lead Design Consultant...",
+      "timestamp": "2025-10-17T12:00:00Z"
+    },
+    {
+      "role": "user",
+      "content": "I need a website for my taco truck",
+      "timestamp": "2025-10-17T12:00:30Z"
+    }
+  ],
+  "savedAt": "2025-10-17T12:30:00Z"
+}
+```
+
+---
+
+## 🎨 The Interactive Preview System
+
+### Purpose of the Preview
+
+**NOT:** The final website  
+**YES:** A sketch to show what we're building
+
+**Nitya explains this upfront:**
+> "Quick heads up - StarterNode is a turnkey design agency. Our goal is to make sure your site increases visibility through SEO and converts visitors into customers. This conversation is just to gather details and create a mockup sketch. I'll ask questions, you answer, and we'll draft it together. Then our design team polishes it and makes it beautiful. Don't worry if you don't have everything ready - we're just getting started!"
 
 ### How It Works
 
@@ -141,743 +288,292 @@ Each contains:
 │  CHAT (Left)            │  PREVIEW (Right)          │
 ├─────────────────────────┼───────────────────────────┤
 │                         │                           │
-│  Nitya: "Let's build    │  [Empty canvas]           │
-│  your Hero section!     │                           │
-│  What's your main       │                           │
-│  headline?"             │                           │
+│  Nitya: "What pages do  │  [Empty canvas]           │
+│  you need?"             │                           │
 │                         │                           │
-│  User: "Best tacos in   │  [Preview updates]        │
-│  Austin since 1987"     │  ┌──────────────────┐    │
-│                         │  │ Best Tacos in    │    │
-│  Nitya: "Love it! Now   │  │ Austin Since 1987│    │
-│  upload your logo..."   │  └──────────────────┘    │
-│                         │  [Upload zone appears]   │
-│  [User uploads logo]    │  [Logo appears in preview]│
+│  User: "Home, About,    │  [sitemap.json updates]   │
+│  Menu, Contact"         │                           │
 │                         │                           │
-│  Nitya: "Perfect! Here's│  [Full hero section with │
-│  your Hero section."    │  headline, logo, CTA]    │
-│                         │  [APPROVE button]         │
+│  Nitya: "What's your    │  [metadata.json updates]  │
+│  business name?"        │                           │
 │                         │                           │
-│  User clicks APPROVE    │  ✓ Hero section saved!   │
-│                         │  Moving to About...       │
+│  User: "Austin Tacos"   │  [Preview shows headline] │
+│                         │                           │
+│  Nitya: "Show me a site │  [User shares MxPx.com]   │
+│  you love"              │                           │
+│                         │  [styles.css updates]     │
+│                         │  [Preview updates colors] │
+│                         │                           │
+│  Nitya: "Upload logo"   │  [Upload zone appears]    │
+│  [User uploads]         │  [Logo appears]           │
+│                         │  [assets/icons/logo.png]  │
+│                         │                           │
 └─────────────────────────┴───────────────────────────┘
 ```
 
 ### Section-by-Section Workflow
 
-**Nitya's New Behavior (Concise & Focused):**
+Nitya asks concise questions (1-2 sentences) and fills files as she goes:
 
-**OLD (Verbose):**
-> "Okay so here's what I'm thinking for your website... [3 paragraphs about features]"
+1. **Pages needed** → Updates sitemap.json
+2. **Business info** → Updates metadata.json  
+3. **Reference site + colors** → Updates styles.css
+4. **Logo upload** → Saves to assets/icons/
+5. **Images upload** → Saves to assets/images/
 
-**NEW (Concise):**
-> "Let's start with your Hero section. What's the main headline visitors should see?"
-
-**Key Principles:**
-1. **One section at a time** - Hero → About → Services → Contact
-2. **Short questions** - 1-2 sentences max, pointed and direct
-3. **Immediate feedback** - Preview updates as data comes in
-4. **Approval required** - Client must approve before moving to next section
-5. **No perfection needed** - "Don't have a logo yet? No problem! We'll use a placeholder - you can swap it later"
-
-### The "No Perfection" Philosophy
-
-**Critical Psychology:**
-
-When a client says *"I don't have that photo yet..."*, Nitya responds:
-
-> "No worries! Most clients don't have everything day one. Let's use a placeholder for now - you can swap it later. Better to launch V1 than wait forever trying to make it perfect! What DO you have ready?"
-
-**Why this works:**
-- Eliminates the perfection trap that kills deals
-- Keeps momentum (conversion killer = delays)
-- Builds something NOW vs waiting indefinitely
-- Client sees progress immediately
-- Psychological win: "I'm making progress!"
-
-### Approval Psychology
-
-Each section approval = micro-commitment:
-- Section 1: "Yes, I like this Hero"
-- Section 2: "Yes, I like this About"  
-- Section 3: "Yes, I like this Services"
-- Section 4: "Yes, I like this Contact"
-
-**By the final proposal:**
-- They've said YES 4+ times already
-- They co-created the mockup (ownership)
-- They can visualize the final product
-- The close becomes natural: "You approved everything - let's make it real!"
-
----
-
-## 📦 The Structured Output System
-
-### Prospect Directory Structure
-
-```
-/prospects/{userId}/
-├── scope.json                    # Master reference file
-├── sections/
-│   ├── hero.js                   # Hero section data
-│   ├── about.js                  # About section data
-│   ├── services.js               # Services section data
-│   ├── contact.js                # Contact section data
-│   └── [additional sections].js
-├── assets/
-│   ├── images/
-│   │   ├── logo.png
-│   │   ├── hero-image.jpg
-│   │   └── [client photos]
-│   ├── icons/
-│   │   └── favicon.ico
-│   └── fonts/                    # If custom fonts
-└── approvals.json                # Tracks what's been approved
-
-```
-
-### scope.json Structure
-
-```json
-{
-  "prospect": {
-    "userId": "user_abc123",
-    "email": "client@example.com",
-    "businessName": "Austin Tacos",
-    "sessionId": "session_xyz789"
-  },
-  "service": {
-    "type": "websites_landing_pages",
-    "complexity": "standard",
-    "referenceUrl": "https://www.mxpx.com/"
-  },
-  "pricing": {
-    "buildFee": 700,
-    "monthlyHosting": 45,
-    "rushFee": 0,
-    "totalFirstMonth": 745,
-    "depositRequired": 350,
-    "timeline": "3 weeks"
-  },
-  "sections": [
-    {
-      "name": "hero",
-      "file": "sections/hero.js",
-      "approved": true,
-      "approvedAt": "2025-10-16T14:23:00Z"
-    },
-    {
-      "name": "about",
-      "file": "sections/about.js",
-      "approved": true,
-      "approvedAt": "2025-10-16T14:28:00Z"
-    },
-    {
-      "name": "services",
-      "file": "sections/services.js",
-      "approved": true,
-      "approvedAt": "2025-10-16T14:35:00Z"
-    },
-    {
-      "name": "contact",
-      "file": "sections/contact.js",
-      "approved": false
-    }
-  ],
-  "assets": {
-    "logo": "assets/images/logo.png",
-    "heroImage": "assets/images/hero-taco-truck.jpg",
-    "aboutImages": [
-      "assets/images/team-photo.jpg",
-      "assets/images/kitchen.jpg"
-    ]
-  },
-  "template": "dark-edgy",
-  "notes": [
-    "Client wants MxPx aesthetic - dark, bold, clean",
-    "Emphasis on authentic Mexican recipes",
-    "Family-owned since 1987 (heritage story)"
-  ],
-  "status": "awaiting_proposal",
-  "createdAt": "2025-10-16T14:15:00Z",
-  "updatedAt": "2025-10-16T14:35:00Z"
-}
-```
-
-### sections/hero.js Example
-
-```javascript
-export const heroSection = {
-  headline: "Best Tacos in Austin Since 1987",
-  subheadline: "Authentic Mexican recipes passed down three generations",
-  ctaText: "Order Online",
-  ctaLink: "/order",
-  backgroundImage: "../assets/images/hero-taco-truck.jpg",
-  logoPosition: "top-left",
-  style: {
-    theme: "dark",
-    textColor: "#FFFFFF",
-    accentColor: "#FF5733"
-  },
-  approved: true,
-  approvedAt: "2025-10-16T14:23:00Z",
-  notes: "Client wanted bold, high-contrast design like MxPx site"
-}
-```
-
-### Why This Structure?
-
-**For Claude Code (ASTRO Build):**
-- Import section files directly: `import { heroSection } from './sections/hero.js'`
-- No parsing or interpretation needed
-- Clear file structure
-- Easy to modify individual sections
-
-**For Future AI Editing:**
-- Each section is isolated
-- AI can edit `about.js` without touching `hero.js`
-- Version control per section
-- Automated updates possible
-
-**For Human Designers:**
-- Visual reference (mockup screenshots)
-- Structured data (scope.json)
-- All assets organized
-- Client notes and preferences captured
+**Key Principle:** Keep momentum. If they don't have something, use placeholder and move on.
 
 ---
 
 ## 🔄 The Complete User Flow
 
-### Step 1: Landing Page Discovery
-**Location:** starternode.com/services/websites
+### Step 1: Landing Page
+**starternode.com/services/websites**
 
-**Sales Copy Sets Expectations:**
-> "Most people use Wix because it's hard to articulate to a designer what you really want. But then you end up with a template that isn't effective.
->
-> With StarterNode, Nitya helps you visualize exactly what you want - then our team builds the real thing. That's why we have such high satisfaction rates!"
+**Message:** "Most people use Wix because it's hard to explain what you want to a designer. With StarterNode, Nitya helps you visualize exactly what you want - then our team builds the real thing."
 
-**Key Message:** Mockup is for clarity, professional designers build the actual site.
+CTA: **"Chat with Nitya"**
 
-### Step 2: Account Creation (Qualification Filter)
-**Why account required BEFORE chatting:**
-- Captures email + phone (lead data)
-- Filters tire-kickers (serious buyers create accounts)
-- Protects expensive AI tokens (only invested in qualified leads)
-- Enables conversation history and follow-up
+### Step 2: Account Creation
+- Name, Email, Password
+- UID generated (e.g., UID_12345)
+- Prospect folder created
+- Instant access to chat
 
-**User Experience:**
-- Click "Talk to Nitya"
-- Simple form: Name, Email, Password
-- Instant access to chat (no email verification yet)
-- Zero friction after account creation
+### Step 3: Nitya's Opening
+> "Hey! I'm Nitya, StarterNode's Lead Design Consultant. I'm here to gather everything our team needs to build your perfect website. Quick thing - what we're building together is a visual sketch so designers know exactly what you want. Then they build the real thing! Ready? Do you have a site already or are we building from scratch?"
 
-### Step 3: Discovery Chat Opens
-**Nitya's greeting (customized per service):**
+### Step 4: Discovery & Folder Filling
 
-> "Hey! I'm Nitya 👋 I see you're interested in getting a website - that's exciting!
->
-> Quick heads up: What we're about to build together is a visual mockup - think of it like showing a designer exactly what's in your head. Then our team builds the real thing!
->
-> Ready? Let's start with your Hero section - the first thing visitors see. What's your business?"
+**Questions Nitya Asks:**
+1. "What pages do you need?" → sitemap.json
+2. "What's your business name?" → metadata.json
+3. "Got a domain?" → metadata.json
+4. "What's your email and phone?" → metadata.json
+5. "Any social media links?" → metadata.json
+6. "Show me a website you absolutely love" → styles.css (reference)
+7. "What are your brand colors?" → styles.css (educate on hex if needed)
+8. "Upload your logo" → assets/icons/
+9. "Got any images?" → assets/images/
 
-### Step 4: Section-by-Section Building
+**Each answer updates the folder in real-time.**
 
-**Hero Section:**
-```
-Nitya: "What's the main headline visitors should see?"
-→ User responds
-→ Preview updates with headline
+### Step 5: Complete Folder
+When all essential info collected:
+- sitemap.json ✅
+- metadata.json ✅
+- styles.css ✅
+- assets/icons/logo.png ✅
+- conversation.json ✅
 
-Nitya: "Perfect! Now upload your logo (or we can use a placeholder)"
-→ User uploads or skips
-→ Preview updates with logo
-
-Nitya: "What should the main button say?"
-→ User: "Order Now"
-→ Preview shows complete Hero section
-→ [APPROVE button appears]
-
-User clicks APPROVE
-→ Hero section saved to hero.js
-→ Marked approved in scope.json
-```
-
-**About Section:**
-```
-Nitya: "Let's build your About section. Tell me your business story in 2-3 sentences."
-→ User shares story
-→ Nitya rewrites for web (SEO-optimized)
-→ Preview updates
-
-Nitya: "Got any photos of your team or location?"
-→ User uploads 2 photos
-→ Preview shows About section with photos
-→ [APPROVE button appears]
-
-User clicks APPROVE
-→ Saved to about.js
-```
-
-**This continues for:** Services, Contact, (optional: Gallery, Menu, Blog, etc.)
-
-### Step 5: Final Mockup Review
-**After all sections approved:**
-
-Nitya: "Amazing! Here's your complete mockup. Take a look at the full preview."
-
-[Preview shows scrollable full-page mockup with all approved sections]
-
-Nitya: "This is the vision you and I just created together. Now here's what happens next..."
-
-### Step 6: Proposal Presentation
-
-```json
-{
-  "service": "Website",
-  "investment": {
-    "buildFee": 700,
-    "monthlyHosting": 45,
-    "totalFirstMonth": 745
-  },
-  "payment_options": [
-    {
-      "name": "Full Payment",
-      "amount": 700,
-      "benefit": "Priority scheduling"
-    },
-    {
-      "name": "Split Payment",
-      "deposit": 350,
-      "balance": 350,
-      "benefit": "Easier on cash flow"
-    }
-  ],
-  "timeline": {
-    "start": "This week (1 spot left)",
-    "designReview": "5 days",
-    "launch": "3 weeks"
-  },
-  "whats_included": [
-    "Professional design based on MxPx aesthetic you love",
-    "All sections you approved (Hero, About, Services, Contact)",
-    "Mobile-responsive (perfect on all devices)",
-    "SEO-optimized content",
-    "Contact form that emails you",
-    "First month hosting FREE",
-    "Unlimited revisions until you love it"
-  ],
-  "next_steps": [
-    "1. Choose payment option",
-    "2. We start this week",
-    "3. Design review in 5 days",
-    "4. Launch in 3 weeks"
-  ],
-  "urgency": "I can hold this slot for 24 hours. After that, you're looking at late November..."
-}
-```
-
-**Nitya's Close:**
-> "You've already approved every section - you know exactly what you're getting. Which payment option works better for you - full $700 or split with $350 deposit?"
-
-(Assumptive close with alternative choice)
-
-### Step 7: Payment & Handoff
-
-**After payment:**
-1. Conversation saved to PocketBase inbox
-2. scope.json + assets package created
-3. Email sent to design team (projects@starternode.com)
-4. Project created in Projects tab
-5. Human designer (Matthew) takes over
-
-**Client sees:**
-> "Thanks for trusting us with your website! Matthew and the team will be in touch within 24 hours to kick things off. You'll get a design preview in 5 days!"
+### Step 6: Designer Handoff
+- Email sent to design team
+- Folder link: `/prospects/UID_12345/`
+- Designer builds real site using folder as complete brief
 
 ---
 
-## 🔧 Technical Implementation
+## 🔧 Technical Implementation (Phase 3)
 
-### Current Tech Stack
+### Backend Architecture
 
-**Frontend:**
-- HTML/CSS/JS (test environment)
-- Next.js 14 + Chakra UI (production - planned)
-- React artifacts for interactive preview
-
-**Backend:**
-- Node.js Express proxy server (CORS solution)
-- PocketBase (auth, database, real-time chat)
-- File system storage (prospect directories)
-
-**AI:**
-- Anthropic Claude Sonnet 4.5 (claude-sonnet-4-5-20250929)
-- Streamed responses for real-time feel
-- JSON analysis output for traffic light detection
-
-**Payments:**
-- Stripe (planned integration)
-
-### Current Architecture
-
-```
-BROWSER (localhost:8080)
-    ↓
-Python HTTP Server (serves static files)
-    ↓
-app.js (frontend logic)
-    ↓
-http://localhost:3000/api/chat (proxy server)
-    ↓
-proxy-server.js (Node.js Express)
-    ↓
-Anthropic Claude API
-    ↓
-Response back through proxy
-    ↓
-Browser displays Nitya's message
-```
-
-### Proxy Server Endpoints
-
-**Current:**
-- `POST /api/chat` - Main conversation endpoint
-
-**Planned:**
-- `POST /api/upload` - File upload handling
-- `POST /api/save-section` - Save section data
-- `GET /api/get-scope` - Retrieve scope.json
-- `POST /api/generate-proposal` - Create proposal
-
-### File Upload System (Planned)
+**New API Endpoints:**
 
 ```javascript
-// Frontend: React artifact with dropzone
-<FileUpload
-  accept="image/*"
-  maxSize={5MB}
-  onUpload={async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('userId', currentUser.id);
-    formData.append('section', 'hero');
-    
-    const response = await fetch('/api/upload', {
-      method: 'POST',
-      body: formData
-    });
-    
-    const { url } = await response.json();
-    updatePreview('heroImage', url);
-  }}
-/>
+POST /api/update-sitemap
+POST /api/update-metadata
+POST /api/update-styles
+POST /api/save-conversation
+POST /api/upload (enhanced for icons vs images)
+```
 
-// Backend: Multer middleware
-import multer from 'multer';
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = `./prospects/${req.body.userId}/assets/images/`;
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
-  }
+**File Writing Logic:**
+```javascript
+// When Nitya collects pages
+router.post('/api/update-sitemap', async (req, res) => {
+    const { userId, pages } = req.body;
+    const sitemap = { pages, updatedAt: new Date().toISOString() };
+    await fs.writeFile(
+        `./prospects/${userId}/sitemap.json`,
+        JSON.stringify(sitemap, null, 2)
+    );
 });
 
-app.post('/api/upload', upload.single('file'), (req, res) => {
-  res.json({ url: `/prospects/${req.body.userId}/assets/images/${req.file.filename}` });
+// When Nitya collects business info
+router.post('/api/update-metadata', async (req, res) => {
+    const { userId, data } = req.body;
+    let metadata = await readExisting(`./prospects/${userId}/metadata.json`);
+    metadata = { ...metadata, ...data, updatedAt: new Date().toISOString() };
+    await fs.writeFile(
+        `./prospects/${userId}/metadata.json`,
+        JSON.stringify(metadata, null, 2)
+    );
+});
+
+// When Nitya collects colors/fonts
+router.post('/api/update-styles', async (req, res) => {
+    const { userId, styles } = req.body;
+    const css = generateCSS(styles);
+    await fs.writeFile(`./prospects/${userId}/styles.css`, css);
 });
 ```
 
-### Section Save System (Planned)
+### Frontend Detection
 
+**Tagging Protocol:**
+
+Nitya uses tags in her responses that frontend detects:
+
+```
+Nitya: "Perfect! [SITEMAP: home, about, menu, contact] Got those pages noted."
+```
+
+Frontend sees `[SITEMAP: ...]` and calls:
 ```javascript
-// When user approves a section
-async function approveSection(sectionName, sectionData) {
-  await fetch('/api/save-section', {
+await fetch('/api/update-sitemap', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      userId: currentUser.id,
-      section: sectionName,
-      data: sectionData
-    })
-  });
-}
-
-// Backend creates section file
-import fs from 'fs/promises';
-
-app.post('/api/save-section', async (req, res) => {
-  const { userId, section, data } = req.body;
-  
-  const filePath = `./prospects/${userId}/sections/${section}.js`;
-  const fileContent = `export const ${section}Section = ${JSON.stringify(data, null, 2)};`;
-  
-  await fs.writeFile(filePath, fileContent);
-  
-  // Update scope.json
-  const scopePath = `./prospects/${userId}/scope.json`;
-  const scope = JSON.parse(await fs.readFile(scopePath, 'utf8'));
-  
-  const sectionIndex = scope.sections.findIndex(s => s.name === section);
-  scope.sections[sectionIndex].approved = true;
-  scope.sections[sectionIndex].approvedAt = new Date().toISOString();
-  
-  await fs.writeFile(scopePath, JSON.stringify(scope, null, 2));
-  
-  res.json({ success: true });
+    body: JSON.stringify({ userId, pages: ['home', 'about', 'menu', 'contact'] })
 });
 ```
 
----
+**Detection Examples:**
+- `[SITEMAP: ...]` → Update sitemap.json
+- `[METADATA: businessName=Austin Tacos]` → Update metadata.json
+- `[STYLES: primaryColor=#FF5733]` → Update styles.css
 
-## 📊 Analytics & Optimization
+### System Prompt Addition
 
-### Key Metrics to Track
-
-**Conversion Funnel:**
 ```
-Landing Page Views
-    ↓ (X% create account)
-Account Creations
-    ↓ (Y% start chat)
-Chat Sessions Started
-    ↓ (Z% complete discovery)
-Complete Discovery (all sections approved)
-    ↓ (W% accept proposal)
-Proposals Accepted
-    ↓
-Revenue Generated
-```
+# YOUR REAL JOB
 
-**Efficiency Metrics:**
-- Average messages to proposal: Target 10-15
-- Average time to proposal: Target 15-25 minutes
-- Token cost per lead: Target <$0.20
-- Token cost per closed deal: Target <$0.50
-- Close rate: Target 40%+
+You are Nitya, StarterNode's Lead Design Consultant.
 
-**Quality Metrics:**
-- Complete sections per session
-- Approval rate per section
-- Drop-off points (which section loses people)
-- Asset upload rate
-- Referral site usage rate
+Your goal: Fill the prospect folder with structured data.
 
-### Traffic Light Analysis
+## Files You Must Complete:
 
-```json
-{
-  "sessionId": "abc123",
-  "messages": [
-    { "traffic_light": "GREEN", "stage": "greeting" },
-    { "traffic_light": "GREEN", "stage": "discovery" },
-    { "traffic_light": "YELLOW", "objection": "budget", "stage": "objection" },
-    { "traffic_light": "GREEN", "stage": "proposal" },
-    { "traffic_light": "GREEN", "stage": "close" }
-  ],
-  "outcome": "CLOSED",
-  "dealValue": 700,
-  "tokensUsed": 8430,
-  "cost": 0.17
-}
+1. sitemap.json - Pages needed
+2. metadata.json - Business information  
+3. styles.css - Visual direction
+4. assets/ - Collect logo and images
+
+## Setting Expectations:
+
+Tell them upfront: "StarterNode is a turnkey design agency. Our goal is to make sure your site increases visibility through SEO and converts visitors. This conversation is just to gather details and create a mockup. I'll ask questions, you answer, and we draft it together. Then our design team polishes it. Don't worry if you don't have everything - we're just getting started!"
+
+## How to Behave:
+
+- Ask ONE question at a time (1-2 sentences)
+- Use tags when collecting data: [SITEMAP: ...], [METADATA: ...], [STYLES: ...]
+- Educate when needed (hex codes, branding basics)
+- Keep momentum (no perfection needed)
+- Be warm, confident, and efficient
 ```
 
-### Optimization Opportunities
+---
 
-**High drop-off at About section?**
-→ Simplify questions, make it more fun
+## 📊 Designer Experience
 
-**Low asset upload rate?**
-→ Emphasize "placeholder okay" messaging
+### What Designers Receive
 
-**Frequent budget objections?**
-→ Adjust value messaging in sales.json
+**Email notification:**
+> "New project ready! Client: Austin Tacos | UID: UID_12345"
 
-**Long time to proposal?**
-→ Reduce discovery questions, move faster
+**They open:** `/prospects/UID_12345/`
+
+**They see:**
+```
+UID_12345/
+├── sitemap.json          ← Pages to build
+├── metadata.json         ← All business info
+├── styles.css            ← Colors, fonts, reference site
+├── conversation.json     ← Full context
+└── assets/
+    ├── icons/logo.png    ← Ready to use
+    └── images/           ← All photos
+```
+
+**No guessing:**
+- Exact pages needed (sitemap.json)
+- Business name, domain, contact info (metadata.json)
+- Brand colors, fonts, style direction (styles.css)
+- All assets organized and ready
+- Full conversation for any questions
+
+**Designer workflow:**
+1. Import data into Astro/Next.js
+2. Use assets from folder
+3. Follow styles.css direction
+4. Reference conversation.json for context
+5. Build real site
+6. Ship to production
 
 ---
 
-## 🚀 Implementation Phases
+## 🎯 Success Criteria
 
-### ✅ Phase 1: Foundation (COMPLETE)
-- [x] Create personality.json
-- [x] Create sales.json
-- [x] Create web_landing.json
-- [x] Build proxy server (CORS solution)
-- [x] Wire up Anthropic API
-- [x] Test basic conversation flow
-- [x] Fix config.js export issue
+### Phase 3 Goals
 
-**Current Status:** Nitya can hold conversations, understand personality, apply sales training.
+**By end of Phase 3:**
+- ✅ Prospect folders auto-created on account signup
+- ✅ sitemap.json fills as Nitya collects pages
+- ✅ metadata.json fills as Nitya collects business info
+- ✅ styles.css generates from reference sites and color choices
+- ✅ Logo uploads save to assets/icons/
+- ✅ Images upload save to assets/images/
+- ✅ conversation.json saves full chat history
+- ✅ Designers receive complete, structured folders
 
-### 🔄 Phase 2: Interactive Builder (IN PROGRESS)
-**Goal:** Section-by-section mockup building with approvals
-
-**Tasks:**
-- [ ] Update sales.json for concise questioning
-- [ ] Add section templates to web_landing.json
-- [ ] Build React artifact for interactive preview
-- [ ] Create upload zones for each section
-- [ ] Add approval button logic
-- [ ] Wire up section save system
-
-**Target:** 1-2 weeks
-
-### ⏳ Phase 3: File Management
-**Goal:** Structured data output for designer handoff
-
-**Tasks:**
-- [ ] Implement file upload endpoint
-- [ ] Create prospect directory structure
-- [ ] Build scope.json generation
-- [ ] Implement section file creation (hero.js, about.js, etc.)
-- [ ] Add asset organization system
-
-**Target:** 1 week
-
-### ⏳ Phase 4: PocketBase Integration
-**Goal:** User auth + conversation storage
-
-**Tasks:**
-- [ ] Set up PocketBase collections
-- [ ] Wire up authentication
-- [ ] Store chat history
-- [ ] Save proposals
-- [ ] Create inbox view
-
-**Target:** 1-2 weeks
-
-### ⏳ Phase 5: Proposal & Payment
-**Goal:** Generate proposals + collect payment
-
-**Tasks:**
-- [ ] Build proposal display component
-- [ ] Add urgency timers
-- [ ] Integrate Stripe
-- [ ] Create payment flow
-- [ ] Send designer handoff email
-
-**Target:** 1 week
-
-### ⏳ Phase 6: Production Deploy
-**Goal:** Launch to real users
-
-**Tasks:**
-- [ ] Deploy frontend to Vercel
-- [ ] Deploy proxy to production server
-- [ ] Set up monitoring
-- [ ] Create analytics dashboard
-- [ ] Soft launch beta
-
-**Target:** 1 week
+### User Experience Metrics
+- Average questions to complete folder: 8-12
+- Folder completion rate: >80%
+- Designer satisfaction: No missing information
+- Time to handoff: <30 minutes
 
 ---
 
-## 🎓 Key Lessons & Principles
+## 🚀 Future Phases
 
-### Sales Psychology
+### Phase 4: PocketBase Integration
+- Real user authentication
+- Conversation storage
+- Designer inbox dashboard
 
-1. **Co-creation builds ownership** - When they help build it, they want it more
-2. **Approval momentum** - Each YES makes the next YES easier
-3. **Visual beats verbal** - Seeing mockup > describing with words
-4. **Perfection kills deals** - Launch V1 fast, improve later
-5. **Urgency must be real** - Fake scarcity backfires
+### Phase 5: Proposal & Payment
+- Auto-generate proposals from folder
+- Stripe checkout integration
+- Payment → Auto-notify designer
 
-### Technical Architecture
-
-1. **Modular brain = scalable** - Add services without breaking existing ones
-2. **Structured output = no guessing** - Designers get exact requirements
-3. **File system + DB hybrid** - Best of both worlds
-4. **Preview in browser = fast feedback** - No design software needed
-5. **Proxy solves CORS = simple** - No complex backend needed (yet)
-
-### User Experience
-
-1. **Account gate qualifies** - Serious buyers create accounts
-2. **One section at a time** - Avoid overwhelm
-3. **Short questions win** - Verbose loses attention
-4. **Show don't tell** - Preview updates in real-time
-5. **Exit route for RED lights** - Respect "no", save tokens
+### Phase 6: Production Deployment
+- Deploy to starternode.com
+- Cloudflare Pages hosting
+- Production monitoring
 
 ---
 
-## 📚 File Reference
+## 🎓 Key Principles
 
-### Core Brain Files
-- `personality.json` - Nitya's character (22-year-old, Texas, wedding sales)
-- `sales.json` - NLP techniques, traffic lights, objection handling
-- `web_landing.json` - Website service discovery + pricing
-
-### Test Environment
-- `NITYA_AI/index.html` - Chat interface
-- `NITYA_AI/app.js` - API integration + brain loading
-- `NITYA_AI/config.js` - API key configuration
-- `NITYA_AI/proxy-server.js` - Node.js proxy for CORS
-- `NITYA_AI/package.json` - Dependencies (express, cors, node-fetch)
-
-### Documentation
-- `NITYA.md` - This complete vision document
-- `NITYA_AI/CHANGELOG.md` - Build phases and progress log
-- `NITYA_AI/README.md` - Quick start guide
-
----
-
-## 🔮 Future Enhancements
-
-### Planned Features
-- Multi-language support (personality_es.json)
-- Voice interface (speak to Nitya)
-- Mobile app (React Native)
-- Video call integration (for complex projects)
-- AI-powered content writing (blog posts, product descriptions)
-- Automated site updates via AI vending machine
-- Client portal for tracking progress
-- Advanced analytics dashboard
-
-### Scaling Strategy
-- Template library (save common sections)
-- Industry-specific modules (restaurant.json, lawyer.json)
-- White-label for agencies
-- Franchise model (regional Nitya instances)
-- API for third-party integrations
-
----
-
-## ⚠️ Critical Success Factors
-
-### Must-Haves:
-1. ✅ Nitya feels authentic (not robotic)
-2. ✅ Structured output (no guessing for designers)
-3. ✅ Fast preview updates (real-time feel)
-4. ✅ Mobile-friendly (most users on phones)
-5. ✅ Exit path for RED lights (save tokens)
-
-### Nice-to-Haves:
-- Real-time typing indicators
-- Undo/redo on sections
-- Section reordering
-- Template marketplace
-- Video mockups
+1. **Nitya fills folders, not websites** - Designers build the real thing
+2. **Replaces Calendly** - Instant engagement, no booking friction
+3. **Structured output = no guessing** - Complete brief in a folder
+4. **Keep momentum** - Perfection kills deals, placeholders work
+5. **One question at a time** - Concise, focused, efficient
 
 ---
 
 ## 💡 The Nitya Promise
 
-**"Every conversation is an opportunity. Every mockup is a commitment device. Every approval is a micro-close. By the time we present the proposal, they've already bought - they just need to pay."**
+**"Every conversation fills a folder. Every folder is a complete brief. Every brief becomes a beautiful website. No guessing. No back-and-forth. Just clarity."**
 
 ---
 
-**Built with strategic sales psychology, modern AI, and a deep understanding that people buy emotionally and justify logically. Nitya handles the emotion. The mockup provides the logic.**
+**Built with strategic sales psychology, structured data architecture, and a deep understanding that designers need complete information to build great sites. Nitya gathers it all.**
 
-**Version 3.0 - October 16, 2025**  
-**Next Update: After Phase 2 (Interactive Builder) Complete**
+**Version 4.0 - October 17, 2025**  
+**Next Update: After Phase 3 (Folder System) Complete**
 
 ---
 
-*"The best sales system is one where the client feels like they designed it themselves. Nitya makes that real."*
+*"The best intake system is one where the client feels heard and the designer has everything they need. Nitya makes that real."*
 
 — Matthew (Mathuresh Das) & Claude (Sulocana Das)
