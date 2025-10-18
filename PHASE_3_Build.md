@@ -1,574 +1,396 @@
 # PHASE 3: NITYA FOLDER BUILDER SYSTEM
-
-**Goal:** Transform NITYA from a chatbot into a structured data collection system that fills prospect folders with everything designers need to build real sites.
-
----
-
-## THE VISION (In One Sentence)
-
-NITYA asks questions, fills files, and hands designers a complete folder with sitemap.json, metadata.json, styles.css, and assets - eliminating Calendly and replacing it with an intelligent intake system.
+**Status:** Part A Complete ✅ | Bug Fix Needed ⚠️ | Part B Pending ⏳  
+**Updated:** October 18, 2025
 
 ---
 
-## WHAT WE'RE BUILDING
+## 🎯 THE CLARIFIED VISION
 
-### The Prospect Folder (Created on Account Creation)
+**Nitya doesn't just collect data - she creates the "holy shit" moment.**
 
-```
-/prospects/UID_12345/
-├── sitemap.json          ← Pages needed (Home, About, Services, etc.)
-├── metadata.json         ← Domain, business info, social URLs
-├── styles.css            ← Brand colors, fonts, visual direction
-├── index.html            ← Homepage mockup (optional - future phase)
-├── assets/
-│   ├── icons/
-│   │   └── logo.png      ← Logo files
-│   └── images/
-│       ├── hero.jpg      ← All uploaded images
-│       └── about.jpg
-└── conversation.json     ← Full chat history for context
-```
+### What NITYA Really Does:
+
+1. **Collects structured data** (sitemap, metadata, styles, assets)
+2. **Educates on brand identity** (HEX codes, typography)
+3. **Gets reference site** ("Pick a site you love")
+4. **GENERATES index.html** using ALL collected data + reference styling
+5. **Shows prospect a REAL working mockup** with their info in their style
+
+**THIS IS THE SELLING POINT.** This is what converts prospects to clients.
 
 ---
 
-## HOW NITYA FILLS THE FOLDER
+## 🚀 THE COMPLETE FLOW
 
-### Core Concept: **Structured Extraction + Real-Time File Writing**
+### Phase 1: Pure Data Collection (No Styling Yet)
 
-As Nitya talks, she:
-1. **Detects** what data she's collecting (page names, colors, domain, etc.)
-2. **Extracts** structured data from conversation
-3. **Writes** to appropriate JSON/CSS files immediately
-4. **Updates** preview in real-time
+**Nitya asks ONE question at a time:**
+
+- "What pages do you need?" → sitemap.json
+- "What's your business name?" → metadata.json
+- "Got a domain?" → metadata.json
+- "Email and phone?" → metadata.json
+- "Social media links?" → metadata.json
+
+**Preview:** Shows raw data simply organized
+
+**Nitya:** "Don't get hung up on styling right now - we're just gathering the puzzle pieces together."
+
+### Phase 2: Brand Identity Education
+
+**Nitya educates about proper branding:**
+
+> "When building a brand identity, it's important we don't just say 'red' or 'green' - we get down to the HEX. Give me a few colors or even a gradient that really communicates your brand and we can incorporate that into the design."
+
+**User provides:** `#FF5733, #440DC3`
+
+**Nitya:** "Perfect! [STYLES: primaryColor=#FF5733, secondaryColor=#440DC3]"
+
+> "Same goes with fonts - what typography speaks to your brand?"
+
+**User provides:** "Montserrat for headlines, Open Sans for body"
+
+**Nitya:** "Great choice! [STYLES: fontHeading=Montserrat, fontBody=Open Sans]"
+
+→ Updates styles.css with collected brand data
+
+### Phase 3: The Magic Moment 🎯
+
+**Nitya:** "Okay, now let's apply a style to this. Let's pick an existing website that you absolutely love that we can model to fit your exact vibe."
+
+**User provides:** "https://www.mxpx.com/"
+
+**Nitya:** "Excellent! [STYLES: referenceUrl=https://www.mxpx.com/] Let me build your mockup now..."
+
+**Then Nitya:**
+1. Reads sitemap.json (pages/structure)
+2. Reads metadata.json (business content)
+3. Reads styles.css (colors/fonts)
+4. Analyzes reference site (layout/template)
+5. **Generates index.html** - A functional website with THEIR data in THEIR style
+
+**Preview updates with REAL working mockup**
+
+**Prospect sees:**
+- Their business name
+- Their colors and fonts
+- Layout styled like the site they loved
+- Actually functional (not placeholders)
+
+**Prospect thinks:** "Holy shit, that's MY business!"
+
+**Result:** Converted to client.
 
 ---
 
-## THE ARCHITECTURE
+## 📁 THE FOLDER STRUCTURE
 
-### 1. **BACKEND: New API Endpoints**
-
-Create these routes in `/server/routes/`:
-
-#### A. `/api/update-sitemap` (POST)
-```javascript
-// Receives page data from Nitya
-{
-  userId: "UID_12345",
-  pages: ["home", "about", "services", "contact", "gallery"]
-}
-
-// Writes to: /prospects/UID_12345/sitemap.json
 ```
-
-#### B. `/api/update-metadata` (POST)
-```javascript
-// Receives business metadata
-{
-  userId: "UID_12345",
-  data: {
-    businessName: "Austin Tacos",
-    domain: "austintacos.com",
-    email: "hello@austintacos.com",
-    phone: "(512) 555-0123",
-    social: {
-      facebook: "https://facebook.com/austintacos",
-      instagram: "@austintacos"
-    }
-  }
-}
-
-// Writes to: /prospects/UID_12345/metadata.json
-```
-
-#### C. `/api/update-styles` (POST)
-```javascript
-// Receives style preferences
-{
-  userId: "UID_12345",
-  styles: {
-    primaryColor: "#FF5733",
-    secondaryColor: "#440DC3",
-    fontHeading: "Montserrat",
-    fontBody: "Open Sans",
-    referenceUrl: "https://www.mxpx.com/"
-  }
-}
-
-// Writes to: /prospects/UID_12345/styles.css
-```
-
-#### D. `/api/save-conversation` (POST)
-```javascript
-// Saves full chat history
-{
-  userId: "UID_12345",
-  messages: [
-    { role: "assistant", content: "Hey! What's your business name?" },
-    { role: "user", content: "Austin Tacos" }
-  ]
-}
-
-// Writes to: /prospects/UID_12345/conversation.json
-```
-
-#### E. `/api/upload` (Already exists, needs minor update)
-```javascript
-// Current: saves to /prospects/UID/assets/images/
-// Update: Add icon detection logic
-// If fieldName === "logo" → save to /assets/icons/
-// Else → save to /assets/images/
+/prospects/test_user_001/          ← ONE folder per conversation
+├── sitemap.json                   ← Pages list
+├── metadata.json                  ← Business data
+├── styles.css                     ← Brand colors/fonts/reference
+├── index.html                     ← THE HOOK (working mockup)
+├── conversation.json              ← Full context
+└── assets/
+    ├── icons/
+    │   └── logo.png               ← Their logo
+    └── images/
+        ├── hero.jpg               ← Their photos
+        └── about.jpg
 ```
 
 ---
 
-### 2. **SYSTEM PROMPT: Teach Nitya Her Real Job**
+## 🔨 PHASE 3 BUILD PLAN
 
-Update `/server/utils/systemPrompt.js` to include:
+### PART A: DATA COLLECTION SYSTEM ✅ COMPLETE (But needs bug fix)
 
-```
-# YOUR REAL JOB
+**What We Built:**
 
-You are NOT building the final website. You are GATHERING DATA to fill a folder.
+1. **4 Backend Routes** → Write sitemap, metadata, styles, conversation
+2. **System Prompt Update** → Tagging protocol, expectation-setting
+3. **Frontend Detection** → Parse tags, call APIs
+4. **Upload Enhancement** → Icon vs image detection
+5. **Auto-save Conversation** → After every message
 
-Your goal: Fill these files for the design team.
+**Status:** All code written and functional.
 
-## Files You Must Complete:
-
-1. **sitemap.json** - What pages does the client need?
-   - Ask: "What pages should we include? Home, About, Services?"
-   - Save their answer as a structured list
-
-2. **metadata.json** - Business information
-   - Business name
-   - Domain (if they have one)
-   - Email & phone
-   - Social media URLs
-
-3. **styles.css** - Visual direction
-   - Ask: "Show me a website you absolutely love that we can model after"
-   - Ask about brand colors (educate on hex codes if needed)
-   - Ask about fonts they like
-
-4. **assets/** - Collect files
-   - Logo (ask them to upload)
-   - Images (hero, about, team photos)
-
-## How to Behave:
-
-### SET EXPECTATIONS FIRST:
-"Hey! Quick thing - StarterNode is a turnkey design agency. Our goal is to make sure your site increases visibility through SEO and converts visitors into customers. This conversation is just to gather details and create a mockup sketch. I'll ask questions, you answer, and we'll draft it together. Then our design team polishes it and makes it beautiful. Don't worry if you don't have everything ready - we're just getting started!"
-
-### ASK ONE QUESTION AT A TIME
-Don't dump paragraphs. Be concise.
-
-### EDUCATE WHEN NEEDED
-If they don't know what a hex code is, explain it simply.
-
-### CALL BACKEND APIS
-When you collect data, tell the frontend to save it:
-- Collected business name? → update-metadata
-- Collected pages list? → update-sitemap
-- Collected colors? → update-styles
-- They uploaded file? → Already handled by upload endpoint
-
-### KEEP MOMENTUM
-If they don't have something, use a placeholder and move on.
-```
+**The Problem:** Multiple folders being created.
 
 ---
 
-### 3. **FRONTEND: Detection & API Calls**
+## 🐛 THE BUG WE FOUND
 
-Update `/public/app.js` to detect when Nitya collects data:
+### What's Happening:
 
-#### A. Add Data Detection Logic
-
+**Current code in `public/app.js`:**
 ```javascript
-// After receiving Nitya's response
-detectDataCollection(nityaMessage) {
-    // Detect sitemap updates
-    if (nityaMessage.includes('[SITEMAP]')) {
-        const pages = this.extractPages(nityaMessage);
-        this.updateSitemap(pages);
-    }
-    
-    // Detect metadata updates
-    if (nityaMessage.includes('[METADATA]')) {
-        const metadata = this.extractMetadata(nityaMessage);
-        this.updateMetadata(metadata);
-    }
-    
-    // Detect styles updates
-    if (nityaMessage.includes('[STYLES]')) {
-        const styles = this.extractStyles(nityaMessage);
-        this.updateStyles(styles);
-    }
-}
+userId: 'user_' + Date.now(),
 ```
 
-#### B. Add API Call Functions
+**Result:**
+- Every page load/refresh = NEW timestamp = NEW folder
+- Testing creates:
+  - `prospects/user_1760801185859/`
+  - `prospects/user_1760801298473/`
+  - `prospects/user_1760801402156/`
+- Data scattered across folders
+- Can't track a single conversation
 
+### What Should Happen:
+
+**ONE conversation = ONE folder = ONE userId**
+
+For testing: `userId: 'test_user_001'`
+
+### THE FIX:
+
+**File:** `public/app.js`  
+**Line 3** (inside App object)
+
+**Change from:**
 ```javascript
-async updateSitemap(pages) {
-    await fetch('http://localhost:3000/api/update-sitemap', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            userId: this.userId,
-            pages: pages
-        })
-    });
-}
-
-async updateMetadata(data) {
-    await fetch('http://localhost:3000/api/update-metadata', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            userId: this.userId,
-            data: data
-        })
-    });
-}
-
-async updateStyles(styles) {
-    await fetch('http://localhost:3000/api/update-styles', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            userId: this.userId,
-            styles: styles
-        })
-    });
-}
-
-// Save conversation after every message
-async saveConversation() {
-    await fetch('http://localhost:3000/api/save-conversation', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            userId: this.userId,
-            messages: this.messageHistory
-        })
-    });
-}
+userId: 'user_' + Date.now(),
 ```
+
+**Change to:**
+```javascript
+userId: 'test_user_001',
+```
+
+**That's it. One line.**
+
+### Why This Works:
+
+- Backend routes already have `mkdir -p` logic
+- Folder created automatically on first API call
+- Same userId = Same folder every time
+- Data persists across page refreshes
+- Easy to verify files in one place
+
+### For Production (Phase 4):
+
+When we add PocketBase:
+- Real user signup → Generate UUID
+- `userId: 'uuid_abc123def456'`
+- Each user gets persistent folder
+- Data survives across sessions
 
 ---
 
-### 4. **THE TAGGING PROTOCOL**
+## ⏳ PART B: INDEX.HTML GENERATION (NOT STARTED)
 
-Teach Nitya to use special tags when she collects data:
+### The Goal:
 
-#### Example Conversation:
+After Nitya collects all data + reference site, she generates a working HTML mockup.
 
-**Nitya:** "What pages should we include on your site?"
+### What Nitya Needs to Do:
 
-**User:** "Home, About, Menu, and Contact"
+1. **Read her own files:**
+   - sitemap.json → Page structure
+   - metadata.json → Business content  
+   - styles.css → Colors, fonts, reference URL
+   - assets/ → Logo and images
 
-**Nitya:** "Perfect! [SITEMAP: home, about, menu, contact] Got it - Home, About, Menu, and Contact. Now, what's your business name?"
+2. **Analyze reference site:**
+   - Layout structure
+   - Design patterns
+   - Component arrangement
 
-**User:** "Austin Tacos"
+3. **Generate index.html:**
+   - Use reference site's layout
+   - Populate with prospect's data
+   - Apply prospect's colors/fonts
+   - Include prospect's logo and images
+   - Create functional HTML/CSS
 
-**Nitya:** "Love it! [METADATA: businessName=Austin Tacos] And what's your domain if you have one?"
+4. **Update preview:**
+   - Show working mockup in right panel
+   - Prospect sees THEIR business beautifully styled
+   - "Holy shit" moment achieved
 
----
+### Implementation Approach:
 
-### 5. **FILE GENERATION LOGIC**
+**Option 1: Template System**
+- Create HTML templates for common layouts
+- Fill templates with prospect data
+- Apply custom styles
 
-Backend routes that write actual files:
+**Option 2: AI Generation** (More flexible)
+- Nitya reads reference site HTML/CSS
+- Nitya generates new HTML using that style
+- Nitya injects prospect's data
+- More dynamic, adapts to any reference site
 
-#### `/server/routes/update-sitemap.js`
+**Recommendation:** Use Claude Code for precision design and implementation.
 
-```javascript
-const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
+### Files to Create/Update:
 
-const router = express.Router();
+- `server/routes/generate-html.js` - New route for HTML generation
+- `server/utils/templateEngine.js` - HTML generation logic
+- `public/app.js` - Call generate-html after reference site collected
+- System prompt - Add HTML generation instructions
 
-router.post('/', async (req, res) => {
-    try {
-        const { userId, pages } = req.body;
-        
-        const sitemap = {
-            pages: pages.map(page => ({
-                name: page,
-                slug: page.toLowerCase().replace(/\s+/g, '-'),
-                order: pages.indexOf(page) + 1
-            })),
-            updatedAt: new Date().toISOString()
-        };
-        
-        const filePath = path.join(__dirname, `../../prospects/${userId}/sitemap.json`);
-        await fs.writeFile(filePath, JSON.stringify(sitemap, null, 2));
-        
-        res.json({ success: true });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+### Estimated Time:
 
-module.exports = router;
-```
-
-#### `/server/routes/update-metadata.js`
-
-```javascript
-const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
-
-const router = express.Router();
-
-router.post('/', async (req, res) => {
-    try {
-        const { userId, data } = req.body;
-        
-        const filePath = path.join(__dirname, `../../prospects/${userId}/metadata.json`);
-        
-        // Read existing metadata if it exists
-        let metadata = {};
-        try {
-            const existing = await fs.readFile(filePath, 'utf8');
-            metadata = JSON.parse(existing);
-        } catch (e) {
-            // File doesn't exist yet, start fresh
-        }
-        
-        // Merge new data
-        metadata = {
-            ...metadata,
-            ...data,
-            updatedAt: new Date().toISOString()
-        };
-        
-        await fs.writeFile(filePath, JSON.stringify(metadata, null, 2));
-        
-        res.json({ success: true });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-module.exports = router;
-```
-
-#### `/server/routes/update-styles.js`
-
-```javascript
-const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
-
-const router = express.Router();
-
-router.post('/', async (req, res) => {
-    try {
-        const { userId, styles } = req.body;
-        
-        // Generate actual CSS
-        const css = `
-/* Auto-generated by NITYA AI */
-/* Client: ${userId} */
-/* Generated: ${new Date().toISOString()} */
-
-:root {
-    /* Brand Colors */
-    --primary: ${styles.primaryColor || '#440DC3'};
-    --secondary: ${styles.secondaryColor || '#00bf63'};
-    
-    /* Typography */
-    --font-heading: '${styles.fontHeading || 'system-ui'}', sans-serif;
-    --font-body: '${styles.fontBody || 'system-ui'}', sans-serif;
-}
-
-/* Reference Site: ${styles.referenceUrl || 'None provided'} */
-`;
-        
-        const filePath = path.join(__dirname, `../../prospects/${userId}/styles.css`);
-        await fs.writeFile(filePath, css);
-        
-        res.json({ success: true });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-module.exports = router;
-```
-
-#### `/server/routes/save-conversation.js`
-
-```javascript
-const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
-
-const router = express.Router();
-
-router.post('/', async (req, res) => {
-    try {
-        const { userId, messages } = req.body;
-        
-        const conversation = {
-            userId: userId,
-            messages: messages,
-            savedAt: new Date().toISOString()
-        };
-        
-        const filePath = path.join(__dirname, `../../prospects/${userId}/conversation.json`);
-        await fs.writeFile(filePath, JSON.stringify(conversation, null, 2));
-        
-        res.json({ success: true });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-module.exports = router;
-```
+TBD after Part A bug fix tested and confirmed working.
 
 ---
 
-### 6. **WIRE UP NEW ROUTES IN PROXY SERVER**
+## ✅ SUCCESS CRITERIA (Complete Phase 3)
 
-Update `/server/proxy-server.js`:
+After Part A Fix + Part B complete:
 
-```javascript
-const express = require('express');
-const cors = require('cors');
+**The Complete Flow Works:**
 
-// Import routes
-const chatRoute = require('./routes/chat');
-const uploadRoute = require('./routes/upload');
-const saveRoute = require('./routes/save');
-const updateSitemapRoute = require('./routes/update-sitemap');
-const updateMetadataRoute = require('./routes/update-metadata');
-const updateStylesRoute = require('./routes/update-styles');
-const saveConversationRoute = require('./routes/save-conversation');
+1. ✅ User starts conversation
+2. ✅ Backend creates `/prospects/test_user_001/` folder
+3. ✅ Nitya collects pages → sitemap.json fills
+4. ✅ Nitya collects business info → metadata.json fills
+5. ✅ Nitya educates on HEX codes → styles.css fills
+6. ✅ Nitya asks about fonts → styles.css updates
+7. ✅ User uploads logo → assets/icons/logo.png
+8. ✅ User uploads images → assets/images/
+9. ✅ Nitya asks for reference site → styles.css updates with URL
+10. ✅ **Nitya generates index.html** using all collected data
+11. ✅ Preview shows REAL working mockup
+12. ✅ Prospect sees their business beautifully styled
+13. ✅ Conversation saved to conversation.json
+14. ✅ Designer opens folder → Has COMPLETE package
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-// Mount routes
-app.post('/api/chat', chatRoute);
-app.post('/api/upload', uploadRoute);
-app.post('/api/save', saveRoute);
-app.post('/api/update-sitemap', updateSitemapRoute);
-app.post('/api/update-metadata', updateMetadataRoute);
-app.post('/api/update-styles', updateStylesRoute);
-app.post('/api/save-conversation', saveConversationRoute);
-
-// Serve prospect files statically
-app.use('/prospects', express.static('../prospects'));
-
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`🚀 Nitya AI Proxy Server running on http://localhost:${PORT}`);
-});
+**The Folder Contains:**
 ```
+/prospects/test_user_001/
+├── sitemap.json          ✅ Structure
+├── metadata.json         ✅ Content
+├── styles.css            ✅ Branding
+├── index.html            ✅ THE HOOK
+├── conversation.json     ✅ Context
+└── assets/               ✅ All media
+    ├── icons/logo.png
+    └── images/
+```
+
+**Result:** Prospect converted. Designer has everything. Zero guessing.
 
 ---
 
-## TESTING PLAN
+## 🧪 TESTING PLAN
 
-### Manual Setup (For This Phase):
+### Step 1: Fix the Bug
 
-1. **Create test folder structure:**
+1. Open `public/app.js`
+2. Line 3: Change `userId: 'user_' + Date.now()` to `userId: 'test_user_001'`
+3. Save file
+
+### Step 2: Clean Up Test Folders
+
 ```bash
-mkdir -p prospects/test_user_001/assets/icons
-mkdir -p prospects/test_user_001/assets/images
+cd prospects
+rm -rf user_*    # Delete all timestamp folders
+# Keep test_user_001 if it exists
 ```
 
-2. **Start both servers:**
+### Step 3: Start Servers
+
 ```bash
-# Terminal 1
+# Terminal 1 - Proxy Server
+cd "C:\Users\matth\Documents\StarterNode 2.0\APP\NITYA_V1.1"
 npm start
 
-# Terminal 2  
+# Terminal 2 - Static File Server
+cd "C:\Users\matth\Documents\StarterNode 2.0\APP\NITYA_V1.1"
 python -m http.server 8080
 ```
 
-3. **Test conversation flow:**
-   - Open: `http://localhost:8080/public/`
-   - Chat with Nitya
-   - She asks about pages → Check `prospects/test_user_001/sitemap.json`
-   - She asks about business → Check `prospects/test_user_001/metadata.json`
-   - She asks about colors → Check `prospects/test_user_001/styles.css`
-   - Upload logo → Check `prospects/test_user_001/assets/icons/`
-   - Upload images → Check `prospects/test_user_001/assets/images/`
+### Step 4: Test Full Flow
 
-4. **Verify file contents:**
-After conversation, all files should exist with real data.
+1. Open `http://localhost:8080/public/`
+2. Chat with Nitya
+3. Answer her questions
+4. Upload a logo (should go to `assets/icons/`)
+5. Upload images (should go to `assets/images/`)
+6. Check `prospects/test_user_001/` folder:
+   - sitemap.json should exist ✅
+   - metadata.json should exist ✅
+   - styles.css should exist ✅
+   - conversation.json should exist ✅
+   - assets/icons/ should have logo ✅
+   - assets/images/ should have photos ✅
 
----
+7. Refresh page and chat again
+8. **Verify:** Data goes to SAME folder (not new timestamp folder)
 
-## THE BUILD ORDER
+### Step 5: Verify Console Logs
 
-### Step 1: Backend Routes (2-3 hours)
-- Create 4 new route files
-- Implement file writing logic
-- Wire up in proxy-server.js
+Should see:
+```
+✅ Sitemap updated: { pages: [...] }
+✅ Metadata updated: { businessName: "...", ... }
+✅ Styles updated: { primaryColor: "...", ... }
+✅ Conversation saved (X messages)
+✅ Logo uploaded: filename.png
+✅ Image uploaded: filename.jpg
+```
 
-### Step 2: System Prompt Update (1 hour)
-- Add expectation-setting greeting
-- Add tagging protocol
-- Add file completion instructions
+### Step 6: After Part B Built
 
-### Step 3: Frontend Detection (2 hours)
-- Add tag parsing logic
-- Add API call functions
-- Test data flow
-
-### Step 4: Upload Route Update (30 min)
-- Add icon vs image detection
-- Update save paths
-
-### Step 5: Testing (1-2 hours)
-- Run full conversation
-- Verify all files generate correctly
-- Check data accuracy
-
-**Total Time: 6-8 hours**
+- Nitya asks for reference site
+- Nitya generates index.html
+- Preview shows working mockup
+- Verify index.html exists in folder
+- Open index.html in browser → Should be functional
 
 ---
 
-## SUCCESS CRITERIA
+## 📊 BUILD STATUS
 
-After Phase 3 is complete, this should happen:
+**Part A: Data Collection**
+- [x] Backend routes created
+- [x] System prompt updated
+- [x] Frontend detection added
+- [x] Upload route enhanced
+- [x] Conversation auto-save
+- [ ] **BUG FIX:** Change userId to fixed value
+- [ ] **TEST:** Verify single-folder flow
 
-1. ✅ User chats with Nitya
-2. ✅ Nitya fills `sitemap.json` with page list
-3. ✅ Nitya fills `metadata.json` with business info
-4. ✅ Nitya fills `styles.css` with brand colors/fonts
-5. ✅ Nitya collects logo → `assets/icons/`
-6. ✅ Nitya collects images → `assets/images/`
-7. ✅ Full conversation saved to `conversation.json`
-8. ✅ Designer opens `/prospects/UID/` and has EVERYTHING needed
-
----
-
-## WHAT COMES NEXT (Phase 4)
-
-- PocketBase integration (real user accounts)
-- Auto-generate `index.html` mockup
-- Email notification to design team
-- Designer inbox/dashboard
-- Stripe payment integration
-- Proposal generation
+**Part B: HTML Generation**
+- [ ] HTML generation logic
+- [ ] Reference site analysis
+- [ ] Template system
+- [ ] Preview integration
+- [ ] Full flow testing
 
 ---
 
-## THE BOTTOM LINE
+## 🎯 NEXT STEPS
 
-**Current:** NITYA is a chatbot that uploads files to the wrong place.
+1. **Fix the bug** (one line change)
+2. **Test thoroughly** (verify single folder works)
+3. **Git commit** Part A + Bug Fix
+4. **Build Part B** (with Claude Code for precision)
+5. **Test complete flow** (data collection → HTML generation)
+6. **Update documentation** (mark Phase 3 complete)
+7. **Move to Phase 4** (PocketBase integration)
 
-**After Phase 3:** NITYA is a structured data collector that fills designer-ready folders.
+---
 
-**The Shift:** From "AI website builder" to "AI intake specialist."
+## 💡 THE BOTTOM LINE
 
-This is what you've been saying 300 times. Now let's build it.
+**Before Phase 3:**  
+Nitya was a chatbot. Files went nowhere useful.
+
+**After Phase 3 Part A:**  
+Nitya collects structured data. Files fill properly. But no mockup yet.
+
+**After Phase 3 Complete:**  
+Nitya collects data AND generates a working mockup. Prospect sees their business. Designer has complete package. Deal closes.
+
+**The Shift:** From "AI chatbot" to "Intelligent intake system that creates the 'holy shit' moment."
+
+---
+
+*"Fix the folder. Build the generator. Close the deal."*
+
+**Last Updated:** October 18, 2025

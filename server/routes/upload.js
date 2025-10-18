@@ -8,7 +8,13 @@ const router = express.Router();
 // Configure storage
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const dir = `../prospects/${req.body.userId}/assets/images/`;
+        // Detect if it's a logo (icon) or regular image
+        const isLogo = file.fieldname === 'logo' || 
+                       file.originalname.toLowerCase().includes('logo');
+        
+        const subdir = isLogo ? 'icons' : 'images';
+        const dir = `../prospects/${req.body.userId}/assets/${subdir}/`;
+        
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
         }
@@ -34,11 +40,19 @@ const upload = multer({
 
 router.post('/', upload.single('file'), (req, res) => {
     try {
+        // Determine if it was saved as icon or image
+        const isLogo = req.file.fieldname === 'logo' || 
+                       req.file.originalname.toLowerCase().includes('logo');
+        const subdir = isLogo ? 'icons' : 'images';
+        
         res.json({
             success: true,
-            url: `/prospects/${req.body.userId}/assets/images/${req.file.filename}`,
-            filename: req.file.filename
+            url: `/prospects/${req.body.userId}/assets/${subdir}/${req.file.filename}`,
+            filename: req.file.filename,
+            type: isLogo ? 'logo' : 'image'
         });
+        
+        console.log(`✅ ${isLogo ? 'Logo' : 'Image'} uploaded: ${req.file.filename}`);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

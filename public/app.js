@@ -98,6 +98,12 @@ const App = {
             // Check for upload requests
             this.detectUploadRequest(nityaMessage);
             
+            // Phase 3: Detect data collection tags
+            this.detectDataCollection(nityaMessage);
+            
+            // Save conversation after each exchange
+            await this.saveConversation();
+            
         } catch (error) {
             this.hideTyping();
             this.addMessage('system', 'Error: ' + error.message);
@@ -313,6 +319,161 @@ const App = {
             });
         } catch (error) {
             console.error('Save error:', error);
+        }
+    },
+    
+    // ===== PHASE 3: DATA COLLECTION DETECTION =====
+    
+    detectDataCollection(message) {
+        // Detect SITEMAP tags
+        if (message.includes('[SITEMAP:')) {
+            const pages = this.extractSitemap(message);
+            if (pages.length > 0) {
+                this.updateSitemap(pages);
+            }
+        }
+        
+        // Detect METADATA tags
+        if (message.includes('[METADATA:')) {
+            const metadata = this.extractMetadata(message);
+            if (Object.keys(metadata).length > 0) {
+                this.updateMetadata(metadata);
+            }
+        }
+        
+        // Detect STYLES tags
+        if (message.includes('[STYLES:')) {
+            const styles = this.extractStyles(message);
+            if (Object.keys(styles).length > 0) {
+                this.updateStyles(styles);
+            }
+        }
+    },
+    
+    // Extract pages from SITEMAP tag
+    extractSitemap(message) {
+        const match = message.match(/\[SITEMAP:\s*([^\]]+)\]/);
+        if (match) {
+            const pagesStr = match[1];
+            // Split by comma and clean up
+            return pagesStr.split(',').map(p => p.trim()).filter(p => p.length > 0);
+        }
+        return [];
+    },
+    
+    // Extract metadata from METADATA tag
+    extractMetadata(message) {
+        const metadata = {};
+        const match = message.match(/\[METADATA:\s*([^\]]+)\]/);
+        if (match) {
+            const dataStr = match[1];
+            // Parse key=value pairs
+            const pairs = dataStr.split(',');
+            pairs.forEach(pair => {
+                const [key, value] = pair.split('=').map(s => s.trim());
+                if (key && value) {
+                    metadata[key] = value;
+                }
+            });
+        }
+        return metadata;
+    },
+    
+    // Extract styles from STYLES tag
+    extractStyles(message) {
+        const styles = {};
+        const match = message.match(/\[STYLES:\s*([^\]]+)\]/);
+        if (match) {
+            const stylesStr = match[1];
+            // Parse key=value pairs
+            const pairs = stylesStr.split(',');
+            pairs.forEach(pair => {
+                const [key, value] = pair.split('=').map(s => s.trim());
+                if (key && value) {
+                    styles[key] = value;
+                }
+            });
+        }
+        return styles;
+    },
+    
+    // API call to update sitemap
+    async updateSitemap(pages) {
+        try {
+            const response = await fetch('http://localhost:3000/api/update-sitemap', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: this.userId,
+                    pages: pages
+                })
+            });
+            const result = await response.json();
+            if (result.success) {
+                console.log('✅ Sitemap updated:', result.sitemap);
+            }
+        } catch (error) {
+            console.error('❌ Error updating sitemap:', error);
+        }
+    },
+    
+    // API call to update metadata
+    async updateMetadata(data) {
+        try {
+            const response = await fetch('http://localhost:3000/api/update-metadata', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: this.userId,
+                    data: data
+                })
+            });
+            const result = await response.json();
+            if (result.success) {
+                console.log('✅ Metadata updated:', result.metadata);
+            }
+        } catch (error) {
+            console.error('❌ Error updating metadata:', error);
+        }
+    },
+    
+    // API call to update styles
+    async updateStyles(styles) {
+        try {
+            const response = await fetch('http://localhost:3000/api/update-styles', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: this.userId,
+                    styles: styles
+                })
+            });
+            const result = await response.json();
+            if (result.success) {
+                console.log('✅ Styles updated:', result.styles);
+            }
+        } catch (error) {
+            console.error('❌ Error updating styles:', error);
+        }
+    },
+    
+    // Save full conversation
+    async saveConversation() {
+        try {
+            const response = await fetch('http://localhost:3000/api/save-conversation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: this.userId,
+                    messages: this.messageHistory
+                })
+            });
+            const result = await response.json();
+            if (result.success) {
+                console.log(`✅ Conversation saved (${result.messageCount} messages)`);
+            }
+        } catch (error) {
+            console.error('❌ Error saving conversation:', error);
         }
     }
 };

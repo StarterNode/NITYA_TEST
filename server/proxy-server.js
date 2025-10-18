@@ -4,6 +4,12 @@ const chatRoute = require('./routes/chat');
 const uploadRoute = require('./routes/upload');
 const saveRoute = require('./routes/save');
 
+// Phase 3: Data Collection Routes
+const updateSitemapRoute = require('./routes/update-sitemap');
+const updateMetadataRoute = require('./routes/update-metadata');
+const updateStylesRoute = require('./routes/update-styles');
+const saveConversationRoute = require('./routes/save-conversation');
+
 const app = express();
 
 // Middleware
@@ -16,6 +22,12 @@ app.use('/prospects', express.static('../prospects'));
 app.use('/api/chat', chatRoute);
 app.use('/api/upload', uploadRoute);
 app.use('/api/save', saveRoute);
+
+// Phase 3: Data Collection Routes
+app.use('/api/update-sitemap', updateSitemapRoute);
+app.use('/api/update-metadata', updateMetadataRoute);
+app.use('/api/update-styles', updateStylesRoute);
+app.use('/api/save-conversation', saveConversationRoute);
 
 // Health check
 app.get('/health', (req, res) => {
